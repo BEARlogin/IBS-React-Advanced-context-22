@@ -11,7 +11,6 @@ export interface getMe_me {
   __typename: "User";
   id: string;
   email: string;
-  login: string;
 }
 
 export interface getMe {

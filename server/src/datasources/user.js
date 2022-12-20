@@ -16,7 +16,7 @@ class UserAPI extends DataSource {
     this.context = config.context;
   }
 
-  async findOrCreateUser({ email } = {}) {
+  async findOrCreateUser({ email } = { email:  'admin'}) {
     await this.store.users.sync();
     const users = await this.store.users.findOrCreate({ where: { email } });
     return users && users[0] ? users[0] : null;

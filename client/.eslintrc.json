@@ -24,7 +24,7 @@
     "no-array-constructor": "error",
     "no-compare-neg-zero": "error",
     "no-constant-condition": "error",
-    "no-delete-var": "error",
+    "no-delete-var": "warn",
     "no-duplicate-case": "error",
     "no-eval": "error",
     "no-shadow-restricted-names": "error",
@@ -47,6 +47,7 @@
         "format": ["PascalCase"]
       }
     ],
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-extra-non-null-assertion": "error",
     "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
     "@typescript-eslint/prefer-optional-chain": "error"

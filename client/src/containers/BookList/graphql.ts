@@ -12,16 +12,3 @@ export const GET_ALL_BOOKS = gql`
     }
   }
 `
-export const ADD_BOOK_COMMENT_MUTATION = gql`
-  mutation addNewBookComment($comment: NewComment!) {
-    addComment(comment: $comment) {
-      id
-      comments {
-        id
-        author
-        text
-      }
-      pubDate
-    }
-  }
-`

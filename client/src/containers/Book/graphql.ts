@@ -19,3 +19,17 @@ export const GET_BOOK_BY_ID = gql`
     }
   }
 `
+
+export const ADD_BOOK_COMMENT_MUTATION = gql`
+  mutation addNewBookComment($comment: NewComment!) {
+    addComment(comment: $comment) {
+      id
+      comments {
+        id
+        author
+        text
+      }
+      pubDate
+    }
+  }
+`

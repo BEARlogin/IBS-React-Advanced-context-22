@@ -10,7 +10,6 @@ export const ME = gql`
     me {
       id
       email
-      login
     }
   }
 `

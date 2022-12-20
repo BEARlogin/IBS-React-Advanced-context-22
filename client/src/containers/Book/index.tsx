@@ -6,9 +6,6 @@ import Button from '@material-ui/core/Button'
 import { Link } from 'react-router-dom'
 import { isNil } from 'lodash'
 
-// import BookCommentAddForm from '../../components/BookCommentAddForm'
-import BookCommentAddForm from 'components/BookCommentAddForm'
-
 import { BookCardComponent } from '../../components'
 
 import { GET_BOOK_BY_ID } from './graphql'
@@ -16,6 +13,10 @@ import { GET_BOOK_BY_ID } from './graphql'
 import styles from './styles'
 import { getBook } from './__generated__/getBook'
 import { BasicStyledComponent } from '../../types'
+import BookCommentAddForm from "../../components/BookCommentAddForm";
+import {getMe} from "../Auth/__generated__/getMe";
+import {ME} from "../Auth/graphql";
+
 
 const BookComponent = ({
   bookId,
@@ -26,6 +27,10 @@ const BookComponent = ({
   const { data, error } = useQuery<getBook>(GET_BOOK_BY_ID, {
     variables: { id: bookId },
   })
+
+  const {data:data1, error:error1} = useQuery<getMe>(ME);
+
+  console.log(data1, error1)
 
   if (error) return <p>Error!: ${error}</p>
   if (isNil(data?.getBook)) return <p>Loading...</p>
@@ -60,8 +65,6 @@ const BookComponent = ({
             </div>
           </Paper>
         )}
-        
-        <BookCommentAddForm bookId={book.id}/>
       </div>
       <Button
         variant="contained"
@@ -72,6 +75,7 @@ const BookComponent = ({
       >
         Back
       </Button>
+    <BookCommentAddForm bookId={book.id} />
     </Paper>
   )
 }
